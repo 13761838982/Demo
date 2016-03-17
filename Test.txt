@@ -1,0 +1,214 @@
+502000763
+5*h?2D4Gfv4A  5*h?2D4Gfv4B 
+
+XJLi@cnsh.delphi-tech.com
+811105_aA
+p@ssword    P@s5wordw
+
+C:\Users\xjli>netstat -a -> a.txt  
+
+dtireadonly/dtireadonly4dev#@medpro_soasis01
+dtireadonly/dtireadonly4dev#@medpro_soasis02
+dtireadonly/dtireadonly4dev#@medpro_toasis01
+dtireadonly/dtireadonly4dev#@medpro_toasis02
+dtireadonly/dtireadonly4dev#@medpro_toasis03
+dtireadonly/dtireadonly4dev#@medpro_toasis04
+dtireadonly/dtireadonly4dev#@medpro_toasis05
+dtireadonly/dtireadonly4dev#@medpro_toasis06
+   
+MEDPRO20161SE/MEDPRO20161SE@NJVMORA11GR2E_SE11GR28
+MEDPRO201612SE/MEDPRO201612SE@NJVMORA11GR2E_SE11GR28
+
+SELECT * FROM PHONE_NUMBER  order by 1 desc;  --CI_WEB_DEMOGRAPHIC.get_all_phone_number_list
+OOSE Policy(H004019,H004022) at Medpro201611se
+
+10.195.13.242:52642
+10.192.3.210:52641
+
+-Djava.util.logging.config.file=E:\UserWorkspace\xjli\logging.properties
+
+PLSQL_DEBUG
+
+-------------workflow---
+/workflowmgr/workflow.do?&workflowState=&policyNo=
+RATE_WORKFLOW_PROCESS = "ValidateAndRateTransactionWorkflow";
+RATE_INITIAL_STATE = "invokeRatingProcess";
+SAVE_OFFICIAL_WORKFLOW_PROCESS = "SaveOfficialWorkflow";
+SAVE_OFFICIAL_INITIAL_STATE = "invokeSaveOfficial";
+Pm_Rate_Policy
+Issue_Policy.Web_Save_AS
+ <forward name="invokeProcessSaveOfficial" path="/transactionmgr/saveOfficial.do?process=processSaveOfficial" redirect="false"/>
+ <forward name="invokeSaveWipProcess" path="/transactionmgr/saveWip.do?process=processSaveWip" redirect="false"/>
+------------workflow---
+
+Attorney as risk
+167322 copyall field---------------------------------------
+pm_process_copyall.pm_copyall_stats()
+Pm_Sel_All_Risks
+Pm_Web_Risk.populate_Dummy_Entity
+Pm_Web_Risk.Check_Risk_Entity_Type
+pm_quick_quote.Populate_CIS  product:QH002979-01
+
+Attorney Status:  attorneyStatusCode  1  ATTORNEY_STATUS_CODE
+Join Date:        groupStartDate      2  GROUP_START_DATE
+Years in Practice: yearsInPractice    3  YEARS_IN_PRACTICE
+Hrs per Week:     fteEquivalent       4  FTE_EQUIVALENT
+Incl in Rating:   rateAsFteB          5  RATE_AS_FTE_B
+
+55	PM_ENDORSE.CHANGE_RISK	GROUP_START_DATE	C		27	RISK	113
+113	PM_NB_END.SAVE_RISK	FTE_EQUIVALENT	N		53	RISK	334
+172	PM_NB_END.SAVE_RISK	ATTORNEY_STATUS_CODE	C		98	RISK	530
+173	PM_NB_END.SAVE_RISK	YEARS_IN_PRACTICE	N		99	RISK	531
+179	PM_NB_END.SAVE_RISK	RATE_AS_FTE_B	C		101	RISK	533
+select * from PM_PROC_ARGS t where t.arg_name in ('ATTORNEY_STATUS_CODE','GROUP_START_DATE','YEARS_IN_PRACTICE','FTE_EQUIVALENT','RATE_AS_FTE_B');
+  SELECT pcc.cs_field_name,
+         pcc.bs_field_name,
+         ppa.arg_name,
+         ppa.arg_data_type,
+         nvl(ppa.col_data_type,ppa.arg_data_type) col_data_type,
+         ppa.table_name,
+         ppa.sort_ord,
+         ppa.*
+  FROM pm_copyall_config pcc,
+       pm_proc_args ppa
+  WHERE pcc.nb_pm_proc_args_fk = ppa.pm_proc_args_pk
+  AND pcc.copy_level = 'RISK'
+  --AND v_mode = 'NEWBUS'
+  UNION
+  SELECT pcc.cs_field_name,
+         pcc.bs_field_name,
+         ppa.arg_name,
+         ppa.arg_data_type,
+         nvl(ppa.col_data_type,ppa.arg_data_type) col_data_type,
+         ppa.table_name,
+         ppa.sort_ord,
+         ppa.*
+  FROM pm_copyall_config pcc,
+       pm_proc_args ppa
+  WHERE pcc.end_pm_proc_args_fk = ppa.pm_proc_args_pk
+  AND pcc.copy_level = 'RISK'
+  --AND v_mode = 'ENDORSE'
+ -- ORDER BY sort_ord ASC;
+/*select * from policy p where p.policy_no like 'INDRLP000148%';
+select upper(r.risk_name), r.*
+  from risk r, entity e
+ where r.policy_fk = 671013311
+   and r.risk_name is not null
+   and r.base_record_b = 'N'
+   and e.last_name_upper = r.risk_name
+   and e.first_name_upper = r.risk_name
+ order by 1 desc;
+*/ 
+
+SELECT '-1', '-SELECT-' FROM dual UNION SELECT code, long_description FROM lookup_code WHERE lookup_type_code = 'ENTITY_CLASS_CODE' AND ci_client_utility.can_user_update_class(code) = 'Y' ORDER BY 2
+
+Attorney as Risk problem.
+1,BRD, R10.501.c, Coverage Detail Section - Hide/disable
+I think it should be Coverage component section - Hide/disable.
+
+2,BRD, R10.7, Note, No 'Coverage' information data entry will be required for attorney risk 
+  on Coverage Tab.
+But, as you know, the Attorney coverage type is Claim Made, there is a required field "RetroActive date",
+How to handle this field then.We need to type it manually for each Attorney's Coverage.
+
+
+
+3,When to populate the Attorney to CIS, the system will add one classification to the entity.
+How about the Law Firm, if also need to create one classification accordingly?
+4,share deductible, 
+
+https://10.192.3.210:4264/medpro201612/ePolicy/CIS/ciEntityMiniPopup.do?pk=39163968&isPopupPage=Y
+http://10.192.3.210:5264/medpro201612/ePolicy/PM/riskmgr/performRiskCopyAll.do?policyNo=INDRLP000148-01&policyTermHistoryId=671013314&policyViewMode=WIP&wipNo=117&offNo=1&date=Tue%20Mar%2015%2010:11:01%20UTC+0800%202016&riskBaseRecordId=671036105&riskId=671036106
+&riskEffectiveToDate=01/01/2017&riskEffectiveFromeDate=01/01/2016&transEffDate=01/01/2016&operation=copyAll&isPopupPage=Y
+
+"PARMS" -> "stateB^Y^countyB^Y^"
+"LEVEL" -> "RISK"
+
+Record{m_recordNumber=0, type=Unknown, m_fieldMap={
+transId='671013313'
+, effFrom='01/01/2016'
+, effTo='01/01/2017'
+, termEff='01/01/2016'
+, termExp='01/01/2017'
+, callFr='BS'
+, fromId='671036106'
+, toId='671358218'
+, parms='stateB^Y^countyB^Y^'
+, level='RISK'}
+
+
+            Record visibleRec=getRiskManager().GetSectionsVisibleInfo(inputRecord);
+            request.setAttribute("coverageVisibleB", BeanDtiUtils.createValueBean("coverageVisibleB", visibleRec.getStringValue("coverageVisibleB")));
+            request.setAttribute("covgClassVisibleB", BeanDtiUtils.createValueBean("covgClassVisibleB", visibleRec.getStringValue("covgClassVisibleB")));
+            request.setAttribute("covgCompVisibleB", BeanDtiUtils.createValueBean("covgCompVisibleB", visibleRec.getStringValue("covgCompVisibleB")));
+            request.setAttribute("coiVisibleB", BeanDtiUtils.createValueBean("coiVisibleB", visibleRec.getStringValue("coiVisibleB")));
+            // Set currentGridId to every gridID on page before load gird header
+            // then load grid header for each grid
+            // Set loaded data into request
+            if(!visibleRec.getStringValue("coverageVisibleB").equalsIgnoreCase("N")){
+                setDataBean(request, covgRs, COVERAGE_GRID_ID);
+                RequestStorageManager.getInstance().set(CURRENT_GRID_ID, COVERAGE_GRID_ID);
+                loadGridHeader(request, null, COVERAGE_GRID_ID, COVERAGE_GRID_LAYER_ID);
+                fieldsMap.getLayers();
+            }
+            if(!visibleRec.getStringValue("covgClassVisibleB").equalsIgnoreCase("N")){
+                setDataBean(request, covgClassRs, COVERAGE_CLASS_GRID_ID);
+                RequestStorageManager.getInstance().set(CURRENT_GRID_ID, COVERAGE_CLASS_GRID_ID);
+                loadGridHeader(request, null, COVERAGE_CLASS_GRID_ID, COVG_CLASS_GRID_LAYER_ID);
+            }
+            if(!visibleRec.getStringValue("covgCompVisibleB").equalsIgnoreCase("N")){
+                setDataBean(request, compRs, COMPONENT_GRID_ID);
+                RequestStorageManager.getInstance().set(CURRENT_GRID_ID, COMPONENT_GRID_ID);
+                loadGridHeader(request, null, COMPONENT_GRID_ID, COMPONENT_GRID_LAYER_ID);
+            }
+
+
+select * from claim c where c.claim_no like '6026624-01';
+select * from cm_transaction t where t.source_record_fk=459863014 order by 1 desc;
+select * from cm_transaction  c where c.cm_transaction_pk=465376301;
+select * from cm_transaction_detail d where d.cm_transaction_fk=465376301;
+
+select * from fmn_cmfm_interface_header t where t.header_pk=467745284;
+select * from fmn_cmfm_interface_detail t where  t.transaction_log_fk=465376302;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
